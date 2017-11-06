@@ -1,0 +1,3 @@
+"0","swarnaData$Transects_Location= factor(swarnaData$Transects_Location)"
+"0","swarnaData$Stream = factor(swarnaData$Stream)"
+"0","swarnaData$Season = factor(swarnaData$Season)"

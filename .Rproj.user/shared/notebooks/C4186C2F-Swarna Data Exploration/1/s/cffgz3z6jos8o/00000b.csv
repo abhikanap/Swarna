@@ -1,0 +1,3 @@
+"0","library(psych)"
+"0","NumberCols = c(3:8,10)"
+"0","pairs.panels(swarnaData[NumberCols])"

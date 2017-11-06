@@ -1,0 +1,44 @@
+---
+title: "Swarna Data Exploration"
+author: "Vishnu Sharma & Abhishek Kanaparthi"
+date: "November 5, 2017"
+output: html_document
+---
+
+The following Document elucidates the various analytics carried out on the Swarna River Data.
+The Dataset is preloaded into the environment under the name swarnaData.
+
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+library(readxl)
+swarnaData <- read_excel("R:/Vishnu Sharma Projects/Swarna River Project/SwarnaData.xlsx")
+```
+
+```{r, message=FALSE, warning=FALSE}
+attach(swarnaData) # Loading the Data into the environment
+str(swarnaData) # Checking the structure of the Data
+summary(swarnaData) # Checking the Summary of the data features
+```
+
+We can observe above that the variables Transect_Location, Stream, Season are converted as character, we need to convert them into factors and check the structure of data again.
+
+```{r}
+swarnaData$Transects_Location= factor(swarnaData$Transects_Location)
+swarnaData$Stream = factor(swarnaData$Stream)
+swarnaData$Season = factor(swarnaData$Season)
+```
+
+After converting the above as factors, now lets go ahead and check the structure of the data and summary again.
+
+```{r}
+str(swarnaData) # Rechecking the Structure of the data
+summary(swarnaData) # rechecking the Summary of the data
+```
+
+The next step is to check the corelations between the variables and their distributions.
+
+```{r, message=FALSE, warning=FALSE}
+library(psych)
+NumberCols = c(3:8,10) # Columns with Important Data, Numerical ones only
+pairs.panels(swarnaData[NumberCols])
+```
+
